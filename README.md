@@ -33,13 +33,13 @@ M$.prototype.removeClass = chainer( function( classNames ){
 
 Classes are names as jQuery so if you one day feel you want to use jQuery the transition will be easy.
 
-find()
-findAll()
-first()
-last()
-addClass()
-removeClass()
-remove()
-html()
-toggleClass()
-bind()
+- find()
+- findAll()
+- first()
+- last()
+- addClass()
+- removeClass()
+- remove()
+- html()
+- toggleClass()
+- bind()

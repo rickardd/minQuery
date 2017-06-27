@@ -42,12 +42,31 @@ const m$ = ( function(){
     this.elm.remove()
   })
 
-  M$.prototype.html = chainer( function(){
-    return this.elm.innerHTML
+  M$.prototype.eq = chainer( function( index ){
+    this.elm = this.elm[ index ]
   })
 
   M$.prototype.toggleClass = chainer( function( className ){
     this.elm.classList.toggle( className )
+  })
+  // experimental browser implementation
+  M$.prototype.closest = chainer( function( queryString ){
+    // if (window.Element && !Element.prototype.closest) {
+    //   Element.prototype.closest =
+    //   function(s) {
+    //       var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+    //           i,
+    //           el = this;
+    //       do {
+    //           i = matches.length;
+    //           while (--i >= 0 && matches.item(i) !== el) {};
+    //       } while ((i < 0) && (el = el.parentElement));
+    //       return el;
+    //   };
+    // }
+    // else{
+      this.elm = this.elm.closest( queryString )
+    // }
   })
 
   M$.prototype.bind = chainer( function( eventName, callback ){
@@ -60,6 +79,19 @@ const m$ = ( function(){
       this.elm.addEventListener( eventName, callback )
     }
   })
+
+  // NOT CHAINABLE FUNCTIONS
+
+  M$.prototype.html = function(){
+    return this.elm.innerHTML
+  }
+  M$.prototype.text = function(){
+    return this.elm.innerText
+  }
+  M$.prototype.keywords = function(){
+    return document.body.innerText
+  }
+
 
   return new M$
 

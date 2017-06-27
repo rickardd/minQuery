@@ -1,0 +1,2 @@
+# minQuery
+A smaller jQuery
